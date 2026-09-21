@@ -30,7 +30,7 @@ export function PrizeRevealModal() {
       <div className="w-full max-w-sm overflow-hidden rounded-[1.6rem] border border-white/10 bg-surface p-8 text-center text-pearl shadow-[0_28px_70px_rgba(0,0,0,0.5)]">
         <div className="mx-auto h-px w-16 bg-gradient-to-r from-coral to-amber" />
         <p className="mt-5 text-[10px] font-semibold tracking-[0.24em] text-amber">
-          {specialWin ? "THE SPECIAL ONE" : "YOU GOT THIS ONE"}
+          {specialWin ? "THE SPECIAL ONE" : "CONGRATULATIONS"}
         </p>
         <div className="mx-auto mt-6 h-36 w-36 overflow-hidden rounded-full border-2 border-[#E7C56A] shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
           {activePrize.imageSrc ? (
@@ -45,13 +45,13 @@ export function PrizeRevealModal() {
           )}
         </div>
         <h3 id="prize-title" className="font-display mt-5 text-2xl font-medium">
-          {activePrize.label}
+          You won {activePrize.label}!
         </h3>
         <p className="mt-2 text-sm font-light text-pearl/60">
           {activePrize.description ?? "This one is yours."}
         </p>
         <button type="button" className="btn-primary mt-7 w-full" onClick={() => { sfxCollect(); collectPrize(); }}>
-          Okay, keep it
+          Keep it
         </button>
       </div>
     </div>

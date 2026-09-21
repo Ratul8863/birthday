@@ -68,7 +68,7 @@ export function SurpriseGate() {
   const pullRef = useRef(0);
   const pullingRef = useRef(false);
   const openingRef = useRef(false);
-  const openRef = useRef<() => void>(() => undefined);
+  const openRef = useRef<(() => void) | null>(null);
   const maxPull = 96;
 
   const triggerOpen = useCallback(async () => {
@@ -110,9 +110,11 @@ export function SurpriseGate() {
     await startExperience();
   }, [reducedMotion, startExperience]);
 
-  openRef.current = () => {
-    void triggerOpen();
-  };
+  useEffect(() => {
+    openRef.current = () => {
+      void triggerOpen();
+    };
+  }, [triggerOpen]);
 
   useEffect(() => {
     const orb = orbRef.current;
@@ -145,7 +147,7 @@ export function SurpriseGate() {
       pullRef.current = dist;
       setPullDist(dist);
       if (dist > 10 && dist % 18 < 2) sfxGatePull();
-      if (dist >= maxPull * 0.9) void openRef.current();
+      if (dist >= maxPull * 0.9) void openRef.current?.();
     };
 
     const onUp = (event: PointerEvent) => {
@@ -154,7 +156,7 @@ export function SurpriseGate() {
       if (orb.hasPointerCapture(event.pointerId)) orb.releasePointerCapture(event.pointerId);
       if (openingRef.current) return;
       if (pullRef.current < 18) {
-        void openRef.current();
+        void openRef.current?.();
         return;
       }
       springBack();

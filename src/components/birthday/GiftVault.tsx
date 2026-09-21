@@ -11,7 +11,16 @@ import { useState, type FormEvent } from "react";
 import { sfxNoteSend } from "@/lib/sfx";
 
 export function GiftVault() {
-  const { config, state, candlesBlown, spinState, token, refreshState } = useExperience();
+  const {
+    config,
+    state,
+    candlesBlown,
+    spinState,
+    token,
+    refreshState,
+    setActivePrize,
+    setSpinState,
+  } = useExperience();
   const { open: vaultOpen } = useVaultLock();
   const { next } = useSlides();
   const [rotation, setRotation] = useState(0);
@@ -114,7 +123,10 @@ export function GiftVault() {
             <GiftWheel
               rotation={rotation}
               onRotationChange={setRotation}
-              onSpinComplete={() => undefined}
+              onSpinComplete={(gift) => {
+                setActivePrize(gift);
+                setSpinState("revealed");
+              }}
               onSpinRefused={() => setHeldBack(true)}
             />
           ) : (

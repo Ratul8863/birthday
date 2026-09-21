@@ -108,16 +108,11 @@ export function ExperienceProvider({
   const [config] = useState(initialConfig);
   const [state, setState] = useState(initialState);
   const [phase, setPhase] = useState<ExperiencePhase>("gate");
-  const [heroVariation, setHeroVariation] = useState<HeroVariation>(
-    initialConfig.hero[0],
-  );
-
-  useEffect(() => {
-    if (initialConfig.hero.length > 1) {
-      const idx = pickHeroVariation(initialConfig.hero.length);
-      setHeroVariation(initialConfig.hero[idx]);
-    }
-  }, [initialConfig.hero]);
+  const [heroVariation] = useState<HeroVariation>(() => {
+    if (initialConfig.hero.length <= 1) return initialConfig.hero[0];
+    const idx = pickHeroVariation(initialConfig.hero.length);
+    return initialConfig.hero[idx];
+  });
   const [spinState, setSpinState] = useState<SpinState>("idle");
   const [activePrize, setActivePrize] = useState<PublicGift | null>(null);
   const [audioPlaying, setAudioPlaying] = useState(false);
@@ -253,6 +248,7 @@ export function ExperienceProvider({
     [
       token,
       config,
+      heroVariation,
       state,
       phase,
       spinState,
