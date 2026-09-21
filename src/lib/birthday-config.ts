@@ -17,17 +17,49 @@ export const birthdayConfig: BirthdayConfig = {
     name: "Ratul",
     fullName: "Ratul Saha Roy",
   },
-  hero: {
-    eyebrow: "Hold on — I made something for you",
-    title: "Happy Birthday, Sumaiya. Let’s do this properly.",
-    subtitle: "There you are. I’ve been saving this. Give me a few minutes.",
-  },
+  hero: [
+    {
+      kicker: "pull to ignite",
+      greeting: "Hey Sumaiya.",
+      subtitle: "Something is waiting.",
+      hint: "Tap the handle, or pull it down.",
+      revealClosing: "Got you.",
+    },
+    {
+      kicker: "don\u2019t peek \u2014 pull",
+      greeting: "So\u2026 you showed up.",
+      subtitle: "I was getting impatient.",
+      hint: "Pull it. Don\u2019t overthink it.",
+      revealClosing: "Finally.",
+    },
+    {
+      kicker: "one pull away",
+      greeting: "Sumaiya, hi.",
+      subtitle: "I owe you this one.",
+      hint: "Give it a pull.",
+      revealClosing: "Let\u2019s go.",
+    },
+    {
+      kicker: "your turn",
+      greeting: "Right on time.",
+      subtitle: "This one\u2019s all yours.",
+      hint: "Pull the handle down.",
+      revealClosing: "This is yours.",
+    },
+    {
+      kicker: "almost ready",
+      greeting: "There you are.",
+      subtitle: "I\u2019ve been saving this.",
+      hint: "Pull down. Trust me.",
+      revealClosing: "It begins.",
+    },
+  ],
   letter: {
     intro: "starting with this",
     body: [
       "Janu,",
-      "I kept opening Notes to write this and then closing it again. It’s hard to put into words how much I value having you around.",
-      "You’re the one person I can text random nonsense to at 3 AM. The one who makes the heavy days feel a lot lighter. I don’t say it enough, so I’m saying it here.",
+      "I kept opening Notes to write this and then closing it again. It\u2019s hard to put into words how much I value having you around.",
+      "You\u2019re the one person I can text random nonsense to at 3 AM. The one who makes the heavy days feel a lot lighter. I don\u2019t say it enough, so I\u2019m saying it here.",
       "I hope this year is louder where you want it loud, and quieter where you need peace. You deserve it all.",
     ],
     signoff: "Love, Ratul",
@@ -61,7 +93,7 @@ export const birthdayConfig: BirthdayConfig = {
       id: "m5",
       src: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80",
       alt: "City lights at night",
-      caption: "Didn’t plan anything. Somehow that was the plan.",
+      caption: "Didn\u2019t plan anything. Somehow that was the plan.",
     },
     {
       id: "m6",
@@ -74,13 +106,13 @@ export const birthdayConfig: BirthdayConfig = {
     { title: "That smile", text: "Weirdly effective. Fixes my mood without asking." },
     { title: "The chaos", text: "Exhausting. Also the funniest part of knowing you." },
     { title: "How you care", text: "You show up. Quietly. Consistently. It counts." },
-    { title: "Just… you", text: "Days make more sense when you’re in them." },
+    { title: "Just\u2026 you", text: "Days make more sense when you\u2019re in them." },
   ],
   balloons: {
     kicker: "one for every year",
-    startHint: "First one. It’s already trying to get away.",
-    midHint: "They don’t sit still. Catch this one.",
-    endHint: "Last few. Don’t let this one drift off.",
+    startHint: "First one. It\u2019s already trying to get away.",
+    midHint: "They don\u2019t sit still. Catch this one.",
+    endHint: "Last few. Don\u2019t let this one drift off.",
     doneKicker: "every single year",
     doneBody: "Loud, a little messy, and completely yours.",
     cta: "To the cake",
@@ -209,12 +241,12 @@ export const birthdayConfig: BirthdayConfig = {
     ],
   },
   final: {
-    headline: "Okay. That’s the whole thing.",
+    headline: "Okay. That\u2019s the whole thing.",
     body: [
       "Wheel, balloons, cake. You actually did all of it.",
       "The stuff on the table is yours. Tomorrow is the part I want.",
     ],
-    closing: "I’m glad it’s you.",
+    closing: "I\u2019m glad it\u2019s you.",
   },
 };
 

@@ -21,10 +21,33 @@ import type {
 import type { getPublicConfig } from "@/lib/experience-service";
 
 export type ExperienceConfig = ReturnType<typeof getPublicConfig>;
+export type HeroVariation = ExperienceConfig["hero"][number];
+
+function pickHeroVariation(total: number): number {
+  const key = "birthday-hero-used";
+  try {
+    const raw = localStorage.getItem(key);
+    const used: number[] = raw ? JSON.parse(raw) : [];
+    const available = Array.from({ length: total }, (_, i) => i).filter(
+      (i) => !used.includes(i),
+    );
+    if (available.length === 0) {
+      const pick = Math.floor(Math.random() * total);
+      localStorage.setItem(key, JSON.stringify([pick]));
+      return pick;
+    }
+    const pick = available[Math.floor(Math.random() * available.length)];
+    localStorage.setItem(key, JSON.stringify([...used, pick]));
+    return pick;
+  } catch {
+    return Math.floor(Math.random() * total);
+  }
+}
 
 type ExperienceContextValue = {
   token: string;
   config: ExperienceConfig;
+  heroVariation: HeroVariation;
   state: ExperienceState;
   phase: ExperiencePhase;
   setPhase: (phase: ExperiencePhase) => void;
@@ -84,9 +107,17 @@ export function ExperienceProvider({
 }: ProviderProps) {
   const [config] = useState(initialConfig);
   const [state, setState] = useState(initialState);
-  const [phase, setPhase] = useState<ExperiencePhase>(
-    initialState.completed ? "completed" : "gate",
+  const [phase, setPhase] = useState<ExperiencePhase>("gate");
+  const [heroVariation, setHeroVariation] = useState<HeroVariation>(
+    initialConfig.hero[0],
   );
+
+  useEffect(() => {
+    if (initialConfig.hero.length > 1) {
+      const idx = pickHeroVariation(initialConfig.hero.length);
+      setHeroVariation(initialConfig.hero[idx]);
+    }
+  }, [initialConfig.hero]);
   const [spinState, setSpinState] = useState<SpinState>("idle");
   const [activePrize, setActivePrize] = useState<PublicGift | null>(null);
   const [audioPlaying, setAudioPlaying] = useState(false);
@@ -197,6 +228,7 @@ export function ExperienceProvider({
     () => ({
       token,
       config,
+      heroVariation,
       state,
       phase,
       setPhase,

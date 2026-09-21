@@ -15,6 +15,10 @@ export async function seedRemoteNote(_token: string, _body: string, _writes: num
 export async function writeRemoteNote(
   _token: string,
   _body: string,
-): Promise<{ ok: false; local: true }> {
+): Promise<
+  | { ok: false; local: true }
+  | { ok: true; writes: number }
+  | { ok: false; error: string }
+> {
   return { ok: false, local: true };
 }

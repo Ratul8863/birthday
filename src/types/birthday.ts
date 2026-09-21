@@ -20,7 +20,13 @@ export type BirthdayConfig = {
     age?: number;
   };
   sender?: { name?: string; fullName?: string };
-  hero: { eyebrow: string; title: string; subtitle: string };
+  hero: Array<{
+    kicker: string;
+    greeting: string;
+    subtitle: string;
+    hint: string;
+    revealClosing: string;
+  }>;
   letter: { intro: string; body: string[]; signoff?: string };
   memories: Array<{
     id: string;
