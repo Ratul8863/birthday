@@ -1,0 +1,230 @@
+import type { BirthdayConfig } from "@/types/birthday";
+
+/**
+ * Central personalization layer.
+ * Swap names, stories, photos, gifts — keep the voice sounding like you, not a template.
+ */
+export const birthdayConfig: BirthdayConfig = {
+  recipient: {
+    name: "Sumaiya",
+    fullName: "Sumaiya Jannat",
+    nickname: "Vutta",
+    dearName: "Janu",
+    birthday: "September 22, 2003",
+    age: 23,
+  },
+  sender: {
+    name: "Ratul",
+    fullName: "Ratul Saha Roy",
+  },
+  hero: {
+    eyebrow: "Hold on — I made something for you",
+    title: "Happy Birthday, Sumaiya. Let’s do this properly.",
+    subtitle: "There you are. I’ve been saving this. Give me a few minutes.",
+  },
+  letter: {
+    intro: "starting with this",
+    body: [
+      "Janu,",
+      "I kept opening Notes to write this and then closing it again. It’s hard to put into words how much I value having you around.",
+      "You’re the one person I can text random nonsense to at 3 AM. The one who makes the heavy days feel a lot lighter. I don’t say it enough, so I’m saying it here.",
+      "I hope this year is louder where you want it loud, and quieter where you need peace. You deserve it all.",
+    ],
+    signoff: "Love, Ratul",
+  },
+  memories: [
+    {
+      id: "m1",
+      src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80",
+      alt: "Friends laughing together outdoors",
+      caption: "We were so loud that day. Zero regrets.",
+    },
+    {
+      id: "m2",
+      src: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80",
+      alt: "Friends sharing a meal",
+      caption: "Forgot whose idea this was. Still think about it though.",
+    },
+    {
+      id: "m3",
+      src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80",
+      alt: "Celebration toast",
+      caption: "Celebrating something tiny like it was huge. Peak us.",
+    },
+    {
+      id: "m4",
+      src: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&q=80",
+      alt: "Birthday cake with candles",
+      caption: "You almost blew the candles out wrong. Classic.",
+    },
+    {
+      id: "m5",
+      src: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80",
+      alt: "City lights at night",
+      caption: "Didn’t plan anything. Somehow that was the plan.",
+    },
+    {
+      id: "m6",
+      src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80",
+      alt: "Road trip view",
+      caption: "Bad playlist. Great company. Would do it again.",
+    },
+  ],
+  specialCards: [
+    { title: "That smile", text: "Weirdly effective. Fixes my mood without asking." },
+    { title: "The chaos", text: "Exhausting. Also the funniest part of knowing you." },
+    { title: "How you care", text: "You show up. Quietly. Consistently. It counts." },
+    { title: "Just… you", text: "Days make more sense when you’re in them." },
+  ],
+  balloons: {
+    kicker: "one for every year",
+    startHint: "First one. It’s already trying to get away.",
+    midHint: "They don’t sit still. Catch this one.",
+    endHint: "Last few. Don’t let this one drift off.",
+    doneKicker: "every single year",
+    doneBody: "Loud, a little messy, and completely yours.",
+    cta: "To the cake",
+  },
+  audio: {
+    trackSrc: "/audio/birthday.mp3",
+    initialVolume: 0.55,
+  },
+  spinner: {
+    maxSpins: 6,
+    mode: "guaranteed",
+    guaranteedGiftIds: ["churi-3", "churi-2", "gold-bangles", "kitkat", "exotic", "lipstick"],
+    gifts: [
+      {
+        id: "iphone",
+        label: "iPhone 15 Pro Max",
+        shortLabel: "iPhone",
+        description: "The big one. Titanium, the works.",
+        imageSrc: "/gifts/iphone.webp",
+        color: "#F4E6D4",
+      },
+      {
+        id: "apple",
+        label: "1 Apple",
+        shortLabel: "Apple",
+        description: "One apple. The fruit.",
+        imageSrc: "/gifts/apple.webp",
+        color: "#C44732",
+      },
+      {
+        id: "cinema",
+        label: "Cinema / Movie",
+        shortLabel: "Cinema",
+        description: "Tickets and popcorn. You pick the film.",
+        imageSrc: "/gifts/cinema.webp",
+        color: "#E7C56A",
+      },
+      {
+        id: "dress",
+        label: "A beautiful dress",
+        shortLabel: "Dress",
+        description: "The dress. I already know the one.",
+        imageSrc: "/gifts/dress.webp",
+        color: "#6E2A22",
+      },
+      {
+        id: "bangles-1",
+        label: "1 dozen Kashmiri bangles",
+        shortLabel: "1 dozen",
+        description: "A dozen Kashmiri bangles.",
+        imageSrc: "/gifts/bangles.webp",
+        color: "#F4E6D4",
+      },
+      {
+        id: "churi-3",
+        label: "3 dozen Kashmiri churi",
+        shortLabel: "3 dozen",
+        description: "Three dozen Kashmiri churi. The whole stack.",
+        imageSrc: "/gifts/churi-3.webp",
+        color: "#C44732",
+      },
+      {
+        id: "churi-2",
+        label: "2 dozen Kashmiri churi",
+        shortLabel: "2 dozen",
+        description: "Two dozen Kashmiri churi.",
+        imageSrc: "/gifts/churi-2.webp",
+        color: "#E7C56A",
+      },
+      {
+        id: "gold-bangles",
+        label: "Golden bangles",
+        shortLabel: "Gold",
+        description: "The gold ones. Heavy, in a good way.",
+        imageSrc: "/gifts/gold.webp",
+        color: "#6E2A22",
+      },
+      {
+        id: "kitkat",
+        label: "KitKat",
+        shortLabel: "KitKat",
+        description: "The chocolate. Break it however you want.",
+        imageSrc: "/gifts/kitkat.webp",
+        color: "#F4E6D4",
+      },
+      {
+        id: "good-girl",
+        label: "Good Girl perfume",
+        shortLabel: "Good Girl",
+        description: "Good Girl. The heel bottle.",
+        imageSrc: "/gifts/good-girl.webp",
+        color: "#C44732",
+      },
+      {
+        id: "exotic",
+        label: "Exotic perfume",
+        shortLabel: "Exotic",
+        description: "Exotic. It stays on you.",
+        imageSrc: "/gifts/exotic.webp",
+        color: "#E7C56A",
+      },
+      {
+        id: "lipstick",
+        label: "Lipstick",
+        shortLabel: "Lipstick",
+        description: "The lipstick. I already chose the shade.",
+        imageSrc: "/gifts/lipstick.webp",
+        color: "#6E2A22",
+      },
+      {
+        id: "earrings",
+        label: "Ear ring",
+        shortLabel: "Earrings",
+        description: "A pair. For whenever you feel like it.",
+        imageSrc: "/gifts/earrings.webp",
+        color: "#F4E6D4",
+      },
+      {
+        id: "speaker",
+        label: "Bluetooth speaker",
+        shortLabel: "Speaker",
+        description: "Bluetooth. Loud enough for the kitchen.",
+        imageSrc: "/gifts/speaker.webp",
+        color: "#C44732",
+      },
+    ],
+  },
+  final: {
+    headline: "Okay. That’s the whole thing.",
+    body: [
+      "Wheel, balloons, cake. You actually did all of it.",
+      "The stuff on the table is yours. Tomorrow is the part I want.",
+    ],
+    closing: "I’m glad it’s you.",
+  },
+};
+
+export function getPublicGifts(config: BirthdayConfig = birthdayConfig) {
+  return config.spinner.gifts.map(({ id, label, shortLabel, description, imageSrc, color }) => ({
+    id,
+    label,
+    shortLabel,
+    description,
+    imageSrc,
+    color,
+  }));
+}
