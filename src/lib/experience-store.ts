@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
 import type { PublicGift, SpinnerMode } from "@/types/birthday";
 
 export type StoredExperience = {
@@ -24,7 +25,9 @@ const globalStore = globalThis as typeof globalThis & {
   __birthdayStore?: Map<string, StoredExperience>;
 };
 
-const dataFile = path.join(process.cwd(), "data", "experiences.json");
+const dataFile = process.env.NODE_ENV === "production"
+  ? path.join(os.tmpdir(), "experiences.json")
+  : path.join(process.cwd(), "data", "experiences.json");
 
 function normalize(record: StoredExperience): StoredExperience {
   return {
